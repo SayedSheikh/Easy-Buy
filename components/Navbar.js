@@ -2,32 +2,47 @@
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const { data: session } = useSession();
+  const pathname = usePathname();
+
+  // Helper to check if the link is active
+  const isActive = (href) => pathname === href;
 
   return (
-    <div className="navbar bg-gray-900 text-white px-6 justify-between">
+    <div className="navbar sticky top-0 left-0 w-full z-50 bg-gray-900 text-white px-6 justify-between shadow-lg">
       {/* Left: Logo */}
       <div className="flex">
         <Link
           href="/"
           className="text-2xl font-bold tracking-wide hover:text-gray-300 transition">
-          MyApp
+          EasyBuy
         </Link>
       </div>
 
       {/* Center: Navigation */}
       <div className="hidden md:flex gap-6 text-lg font-medium">
-        <Link href="/" className="hover:text-blue-400 transition">
+        <Link
+          href="/"
+          className={`hover:text-blue-400 transition ${
+            isActive("/") ? "text-blue-400 font-bold" : ""
+          }`}>
           Home
         </Link>
-        <Link href="/products" className="hover:text-blue-400 transition">
+        <Link
+          href="/products"
+          className={`hover:text-blue-400 transition ${
+            isActive("/products") ? "text-blue-400 font-bold" : ""
+          }`}>
           Products
         </Link>
         <Link
           href="/dashboard/add-product"
-          className="hover:text-blue-400 transition">
+          className={`hover:text-blue-400 transition ${
+            isActive("/dashboard/add-product") ? "text-blue-400 font-bold" : ""
+          }`}>
           Add Product
         </Link>
       </div>
@@ -92,13 +107,31 @@ export default function Navbar() {
           tabIndex={0}
           className="menu menu-sm dropdown-content mt-3 p-2 shadow-lg bg-gray-800 rounded-box w-52">
           <li>
-            <Link href="/">Home</Link>
+            <Link
+              href="/"
+              className={isActive("/") ? "text-blue-400 font-bold" : ""}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link href="/products">Products</Link>
+            <Link
+              href="/products"
+              className={
+                isActive("/products") ? "text-blue-400 font-bold" : ""
+              }>
+              Products
+            </Link>
           </li>
           <li>
-            <Link href="/dashboard/add-product">Add Product</Link>
+            <Link
+              href="/dashboard/add-product"
+              className={
+                isActive("/dashboard/add-product")
+                  ? "text-blue-400 font-bold"
+                  : ""
+              }>
+              Add Product
+            </Link>
           </li>
           {session ? (
             <>

@@ -8,7 +8,7 @@ export default function LoginPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const error = searchParams.get("error"); // from middleware
-  const callbackUrl = searchParams.get("callbackUrl") || "/"; // fallback to home
+  const callbackUrl = searchParams.get("callbackUrl") || "/products"; // fallback to home
 
   const [showAlert, setShowAlert] = useState(false);
   const [loading, setLoading] = useState(false);

@@ -8,7 +8,7 @@ import { Toaster } from "react-hot-toast";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col bg-black/50 text-white">
         <SessionProvider>
           <Navbar />
           <main className="flex-1 container mx-auto p-4">{children}</main>
