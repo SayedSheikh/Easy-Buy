@@ -17,7 +17,7 @@ export default function ProductCard({ product }) {
       </figure>
       <div className="card-body">
         <h2 className="card-title">{product.name}</h2>
-        <p className="text-gray-200">{product.category}</p>
+        <p className="text-gray-200">{product.description}</p>
         <p className="font-semibold text-lg">${product.price}</p>
         <div className="flex items-center mt-2">
           <span className="mr-2">⭐ {product.rating}</span>

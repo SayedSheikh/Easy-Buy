@@ -7,9 +7,12 @@ export default async function ProductDetail({ params }) {
     return <div>Product ID is required</div>;
   }
 
-  const res = await fetch(`http://localhost:3000/api/products/${id}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `https://easy-buy-black.vercel.app/api/products/${id}`,
+    {
+      cache: "no-store",
+    }
+  );
   const product = await res.json();
 
   return (

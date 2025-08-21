@@ -1,7 +1,7 @@
 import ProductCard from "@/components/ProductCard";
 
 export default async function ProductsPage() {
-  const res = await fetch("http://localhost:3000/api/products", {
+  const res = await fetch("https://easy-buy-black.vercel.app/api/products", {
     cache: "no-store",
   });
   const products = await res.json();
