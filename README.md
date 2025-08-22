@@ -1,4 +1,3 @@
-````markdown
 # 🛒 Easy Buy
 
 **Easy Buy** is a modern and responsive e-commerce web application built with **Next.js** and **TailwindCSS**.  
@@ -20,11 +19,11 @@ It provides users with a smooth shopping experience including product browsing, 
 ## ⚙️ Setup & Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/SayedSheikh/Easy-Buy.git
    cd easy-buy
    ```
-````
 
 2. **Install dependencies**
 
